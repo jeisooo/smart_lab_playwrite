@@ -8,6 +8,7 @@ public class basePage {
     String link;
     ///public playwright browser;
     public static Page page;
+    public static Response response;
     public static Page openLink(String link){
         page = playwright.openNewTab("firefox", false);
         page.navigate(link);
