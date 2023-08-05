@@ -1,11 +1,6 @@
 {
   "password": "jdbgkjrjc",
   "login": "jeisooo",
-  "browsers": [
-    "firefox",
-    "webkit",
-    "chromium"
-  ],
   "newPageUrl": "https://smart-lab.ru/mobile",
   "oldPageUrl": "https://smart-lab.ru"
 }
