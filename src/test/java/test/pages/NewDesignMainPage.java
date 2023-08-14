@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewDesignMainPage extends basePage{
-    private static String pageUrl;
+    private static String pageUrl = "https://smart-lab.ru/mobile";
     private static String newPageUrl;
     private static ElementHandle element;
     private static String logoSelector = ".h1";
