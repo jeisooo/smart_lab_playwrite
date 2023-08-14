@@ -48,7 +48,7 @@ public class testMainPageNew {
         firstPage.navigate(firstPage.getUrl("newPageUrl")+href[0].substring(7));
         //assertEquals("200",firstPage.getCode());
     }
-    @Test
+    //@Test
     @Story("Main page: go through main menu: all blogs")
     @Description("go through main menu to all blogs")
     @ParameterizedTest(name = "{index} - {0}")
@@ -66,7 +66,7 @@ public class testMainPageNew {
         //assertEquals("200",firstPage.getCode());
     }
 
-    @Test
+    //@Test
     @Story("Main page: go through main menu: all forums")
     @Description("go through main menu to all forums")
     @ParameterizedTest(name = "{index} - {0}")
