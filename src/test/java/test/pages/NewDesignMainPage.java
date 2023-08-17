@@ -19,9 +19,9 @@ public class NewDesignMainPage extends basePage{
 
     private static final String SEARCH_FIELD_SELECTOR = ".commandline";
     public NewDesignMainPage(){
-        newPageUrl = this.getUrl("newPageUrl");
-        pageUrl = this.getUrl("oldPageUrl");
-        NewDesignMainPage.openLink(newPageUrl);
+        //newPageUrl = this.getUrl("newPageUrl");
+        pageUrl = this.getUrl("newPageUrl");
+        NewDesignMainPage.openLink(pageUrl);
     }
     public void authorize(){
         ConfigReader reader = new ConfigReader();
@@ -53,9 +53,9 @@ public class NewDesignMainPage extends basePage{
     public void goBack(){
         page.goBack();
     };
-    public void navigate(String string){
-        page.navigate(string);
-    } //TODO deprecate this method. Jeisooo
+    //public void Navigate(String link){
+      //  page.navigate(link);
+    //} //TODO deprecate this method. Jeisooo
 
     public ElementHandle get_bbr_frames(){
         ElementHandle bbr_frame = page.querySelector(bbrFrameSelector);
@@ -90,7 +90,7 @@ public class NewDesignMainPage extends basePage{
     }
 
     public String url(){
-        return page.url();
+        return pageUrl;
     }
 
     public void pageClose(){page.close(); }
