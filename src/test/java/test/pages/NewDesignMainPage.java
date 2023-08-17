@@ -86,7 +86,7 @@ public class NewDesignMainPage extends basePage{
         response = answer;
     }*/
     public void contextClose(){
-        basePage.closeTab(page);
+        basePage.PageClose();
     }
 
     public String url(){

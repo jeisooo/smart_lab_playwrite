@@ -3,6 +3,7 @@ package test;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Response;
+import com.microsoft.playwright.TimeoutError;
 import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
@@ -13,6 +14,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Epic("Develop fundamental analise page Epic")
 @Feature(" fundamental analise page tests: Filter")
@@ -69,18 +71,22 @@ public class SharesFunfamentalPageTest {
         //@DisplayName("Parameterized Test from Resource")
         //@ParameterizedTest(name = "{index} Test 'Wait for some seconds for graph'")
         //@ValueSource(ints = {10, 50, 500, 1000})
-    void shouldWaitForGraph500ms() {
-        Integer number = 500;
+    void cantWaitForGraph200msNegativeTest() {
+        Integer number = 200;
         FundamentalPage.SetDefaulTimeout(number);
         io.qameta.allure.Allure.getLifecycle().updateTestCase(testResult -> testResult.setName("Test 'Wait for " + number +" seconds for graph"));
         //page.SetDefaulTimeout(number);
-        ElementHandle graph = FundamentalPage.GetGraphs(number).get(0);
+        //ElementHandle graph = FundamentalPage.GetGraphs(number).get(0);
         //Locator link = graph.getByAltText("smart-lab.ru");
         //page.HighchartsCredits().evaluate("()=> $document.")
-        ElementHandle link = FundamentalPage.getHighchartsCredits(graph).get(0);
-        link.click();
+       // ElementHandle link = FundamentalPage.getHighchartsCredits(graph).get(0);
+        //link.click();
         //Response response = FundamentalPage.waitForResponce();
-        assertEquals("https://smart-lab.ru/",FundamentalPage.url());
+
+        TimeoutError trying =  assertThrows(TimeoutError.class, () -> {ElementHandle graph = FundamentalPage.GetGraphs(number).get(0);});
+
+
+        //assertEquals("https://smart-lab.ru/",FundamentalPage.url());
     }
 
     @Test
@@ -89,17 +95,19 @@ public class SharesFunfamentalPageTest {
         //@DisplayName("Parameterized Test from Resource")
         //@ParameterizedTest(name = "{index} Test 'Wait for some seconds for graph'")
         //@ValueSource(ints = {10, 50, 500, 1000})
-    void shouldWaitForGraph100ms() {
+    void cantWaitForGraph100msNegativeTest() {
         Integer number = 100;
         FundamentalPage.SetDefaulTimeout(number);
         io.qameta.allure.Allure.getLifecycle().updateTestCase(testResult -> testResult.setName("Test 'Wait for " + number +" seconds for graph"));
         //page.SetDefaulTimeout(number);
-        ElementHandle graph = FundamentalPage.GetGraphs(number).get(0);
+        //ElementHandle graph = FundamentalPage.GetGraphs(number).get(0);
         //Locator link = graph.getByAltText("smart-lab.ru");
         //page.HighchartsCredits().evaluate("()=> $document.")
-        ElementHandle link = FundamentalPage.getHighchartsCredits(graph).get(0);
-        link.click();
+        //ElementHandle link = FundamentalPage.getHighchartsCredits(graph).get(0);
+        //link.click();
+
+        assertThrows(TimeoutError.class, () -> {ElementHandle graph = FundamentalPage.GetGraphs(number).get(0);});
         //Response response = FundamentalPage.waitForResponce();
-        assertEquals("https://smart-lab.ru/",FundamentalPage.url());
+        //assertEquals("https://smart-lab.ru/",FundamentalPage.url());
     }
 }

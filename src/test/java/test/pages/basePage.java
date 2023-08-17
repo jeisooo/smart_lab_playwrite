@@ -26,9 +26,9 @@ public class basePage {
         return page;
     }
 
-    public static void closeTab(Page page){
-        playwright.closeTab(page);
-    }
+    //public static void closeTab(Page page){
+        //playwright.closeTab(page);
+    //}
 
     public void Navigate(String url){
         this.page.navigate(url);
