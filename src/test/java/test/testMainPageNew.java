@@ -7,6 +7,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import test.config.ConfigReader;
 import test.pages.NewDesignMainPage;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -167,5 +169,19 @@ public class testMainPageNew {
         firstPage.navigate("https://ya.ru");
         System.out.println(firstPage.getCode());
         firstPage.getCode();
+
     }*/
+    @Test
+    @Story("Main page: check hovering")
+    @Description("Check .css hovering")
+    void shouldHoverMenuButons(){
+        ElementHandle menu = firstPage.get_main_menu();
+        menu.click();
+        ElementHandle Button = menu.querySelectorAll(".menu__item--feeds a").get(1);
+        Button.hover();
+        String expression = "(element) => window.getComputedStyle(element).getPropertyValue('background-color')";
+        Object color = Button.evaluate(expression);
+        assertEquals(color,"rgb(245, 147, 0)");
+        //System.out.println(color);
+    }
 }

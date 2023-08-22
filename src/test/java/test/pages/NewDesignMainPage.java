@@ -15,6 +15,8 @@ public class NewDesignMainPage extends basePage{
     private static String underMenuSelector = ".undermenu_more_main";
     private static String bbrFrameSelector = ".bbr";
     private static String mainMenuSelector = ".header__menu";
+    private static String underMenuSelectorButtonAllBlogs = "#quotes_menu";
+
     //private static String url = mainPage.page.url();
 
     private static final String SEARCH_FIELD_SELECTOR = ".commandline";
@@ -100,5 +102,6 @@ public class NewDesignMainPage extends basePage{
     public static void waitForTimeout(Integer time){
         page.waitForTimeout(time);
     }
+
 
 }
