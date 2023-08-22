@@ -16,7 +16,7 @@ public class ConfigReader {
         JSONParser parser = new JSONParser();
 
         String value = null;
-        try (Reader reader = new FileReader("/home/jeis/Documents/Рабочие/Тестирование/Playwright/Playwright/src/test/java/test/config/config.json")) {
+        try (Reader reader = new FileReader("/home/jeis/Documents/Рабочие/Тестирование/Playwright/smart_lab_playwrite/src/test/java/test/config/config.json")) {
 
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
 

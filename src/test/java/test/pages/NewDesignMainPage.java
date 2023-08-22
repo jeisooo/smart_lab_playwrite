@@ -19,11 +19,14 @@ public class NewDesignMainPage extends basePage{
 
     private static final String SEARCH_FIELD_SELECTOR = ".commandline";
     public NewDesignMainPage(){
+        //newPageUrl = this.getUrl("newPageUrl");
+        pageUrl = this.getUrl("newPageUrl");
         NewDesignMainPage.openLink(pageUrl);
     }
     public void authorize(){
         ConfigReader reader = new ConfigReader();
-        NewDesignMainPage.openLink(pageUrl);
+
+        NewDesignMainPage.openLink(this.getUrl("oldPageUrl"));
         page.getByAltText("Гость").click();
         page.click("text=Вход на сайт");
         page.click("[placeholder=\"Логин или Email\"]");
@@ -37,49 +40,6 @@ public class NewDesignMainPage extends basePage{
         NewDesignMainPage.openLink("https://smart-lab.ru/");
         return page.querySelector(".commandline input[type='text']");
     }
-    public void find_by_text_vocab(String text){
-        //mainPage.openLink("https://smart-lab.ru/");
-        get_search_field();
-        page.querySelector("[unique=FIND F]").click();
-        page.querySelector(".commandline input[type='text']").fill("FIND F " + text);
-        page.querySelector(".commandline input[type='text']").press("Enter");
-    }
-    public void find_by_text_book(String text){
-        get_search_field();
-        //page.querySelector(".hilited").click();
-        page.querySelector(".commandline input[type='text']").fill("FIND B " + text);
-        page.querySelector(".commandline input[type='text']").press("Enter");
-    }
-    public void find_by_text_people(String text){
-
-    }
-    public void find_by_text_blogs(String text){
-
-    }
-    public void find_by_text_people_writes(String text){
-
-    }
-    public void search_with_options(String text, String options){
-        get_search_field();
-        element = page.querySelector(".commandline input[type='text']");
-        switch (options){
-            case "text vocab":
-                element.fill("FIND F " + text);
-                element.press("Enter");
-            case "text book":
-                element.fill("FIND B " + text);
-                element.press("Enter");
-            case "login":
-                element.fill("FIND @ " + text);
-                element.press("Enter");
-            case "text_login":
-                element.fill(text+"@"+"jeisooo");
-                element.press("Enter");
-            case "blog":
-                element.fill("BLOG @"+ text);
-                element.press("Enter");
-        }
-    }
 
     public ElementHandle get_main_logo(){
         //mainPage.openLink("https://smart-lab.ru/");
@@ -92,10 +52,13 @@ public class NewDesignMainPage extends basePage{
     }
     public void goBack(){
         page.goBack();
-    };
-    public void navigate(String string){
-        page.navigate(string);
-    } //TODO deprecate this method. Jeisooo
+    }
+    public void waitForURL(String link){
+        page.waitForURL(link);
+    }
+    //public void Navigate(String link){
+      //  page.navigate(link);
+    //} //TODO deprecate this method. Jeisooo
 
     public ElementHandle get_bbr_frames(){
         ElementHandle bbr_frame = page.querySelector(bbrFrameSelector);
@@ -119,12 +82,23 @@ public class NewDesignMainPage extends basePage{
     public Locator getLocator(String string){
         return page.locator(string);
     }
-    public String getCode(){
+    /*public String getCode(){
         return response.statusText();
     };
     public void setResponse(Response answer){
         response = answer;
+    }*/
+    public void contextClose(){
+        basePage.PageClose();
     }
 
+    public String url(){
+        return pageUrl;
+    }
+
+    public void pageClose(){page.close(); }
+    public static void waitForTimeout(Integer time){
+        page.waitForTimeout(time);
+    }
 
 }
