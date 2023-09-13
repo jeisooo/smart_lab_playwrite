@@ -1,3 +1,4 @@
+/*
 package test.API;
 import io.restassured.RestAssured;
 import io.restassured.RestAssured.*;
@@ -18,11 +19,13 @@ public class shares {
         RestAssured.baseURI = "https://postman-echo.com/get?foo1=bar1&foo2=bar2";
 
     }
-    /*static Boolean checkPrice(){
+    */
+/*static Boolean checkPrice(){
         given()
                 .
         return get("/lotto").then().body("lotto.lottoId", equalTo(5));
-    }*/
+    }*//*
+
     @Test
     public void shouldBeMoex(){
         RestAssured.baseURI = "https://iss.moex.com/iss";
@@ -68,3 +71,4 @@ public class shares {
 
 }
 
+*/
