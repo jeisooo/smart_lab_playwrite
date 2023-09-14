@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "adjusted": {
+      "type": "boolean"
+    },
+    "next_url": {
+      "type": "string"
+    },
+    "queryCount": {
+      "type": "integer"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "c": {
+              "type": "number"
+            },
+            "h": {
+              "type": "number"
+            },
+            "l": {
+              "type": "number"
+            },
+            "n": {
+              "type": "integer"
+            },
+            "o": {
+              "type": "number"
+            },
+            "t": {
+              "type": "integer"
+            },
+            "v": {
+              "type": "integer"
+            },
+            "vw": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "c",
+            "h",
+            "l",
+            "n",
+            "o",
+            "t",
+            "v",
+            "vw"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "c": {
+              "type": "number"
+            },
+            "h": {
+              "type": "number"
+            },
+            "l": {
+              "type": "number"
+            },
+            "n": {
+              "type": "integer"
+            },
+            "o": {
+              "type": "number"
+            },
+            "t": {
+              "type": "integer"
+            },
+            "v": {
+              "type": "integer"
+            },
+            "vw": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "c",
+            "h",
+            "l",
+            "n",
+            "o",
+            "t",
+            "v",
+            "vw"
+          ]
+        }
+      ]
+    },
+    "resultsCount": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "ticker": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "adjusted",
+    "next_url",
+    "queryCount",
+    "request_id",
+    "results",
+    "resultsCount",
+    "status",
+    "ticker"
+  ]
+}
